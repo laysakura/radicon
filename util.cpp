@@ -10,4 +10,11 @@ std::string itoa(int i)
     return std::string(s);
 }
 
+std::string itoa16(int i)
+{
+    char s[20];
+    sprintf(s, "%x", i);
+    return std::string(s);
+}
+
 }

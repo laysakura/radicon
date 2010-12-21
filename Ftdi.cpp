@@ -14,12 +14,19 @@ Ftdi::~Ftdi()
     _close();
 }
 
-void Ftdi::write(const bytes& b) throw (FtdiException)
+void Ftdi::write(byte b) throw (FtdiException)
 {
-}
-
-bytes Ftdi::read() throw (FtdiException)
-{
+    int ret = ftdi_write_data(&ftdic, &b, 1);
+    if (ret < 0)
+        throw FtdiException(
+            "Write failed for 0x"
+            + itoa16(b)
+            + ", error "
+            + itoa(ret)
+            + " ("
+            + ftdi_get_error_string(&ftdic)
+            + ")\n",
+            WRITE_ERR);
 }
 
 void Ftdi::_init() throw (FtdiException)
