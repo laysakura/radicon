@@ -13,6 +13,7 @@ typedef unsigned char byte;
 
 class Ftdi {
 public:
+    // 出力ポート番号
     static const byte DB0 = 0x01;
     static const byte DB1 = 0x02;
     static const byte DB2 = 0x04;
