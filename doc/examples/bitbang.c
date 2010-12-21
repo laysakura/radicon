@@ -2,13 +2,16 @@
 
 #include <stdio.h>
 #include <unistd.h>
+#ifdef __WIN32__
+#define sleep(x) Sleep(x)
+#endif
 #include <ftdi.h>
 
 int main(int argc, char **argv)
 {
     struct ftdi_context ftdic;
     int f,i;
-    unsigned char buf[1];
+    char buf[1];
 
     if (ftdi_init(&ftdic) < 0)
     {
