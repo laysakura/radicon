@@ -2,7 +2,7 @@ CXX	= g++
 CXXFLAGS = -DDEBUG -Wall
 LDFLAGS	= 
 INCLUDES = 
-LIBS = -lftdi
+LIBS = -lftdi -lpthread
 
 SRCS = $(wildcard *.cpp)
 OBJS = $(subst .cpp,.o,$(SRCS))

@@ -15,11 +15,11 @@ void MortorCtl::command(behavior bhv, leftright lr)
 {
     byte output = (l_behavior << 4) | (r_behavior << 6); // 基本，現状態を保存
     if (lr & L) {
-        output |= (bhv << 4); // (DB5,DB4)が左側モータ制御
+        output = (bhv << 4); // (DB5,DB4)が左側モータ制御
         l_behavior = bhv;
     }
     if (lr & R) {
-        output |= (bhv << 6); // (DB7,DB6)が右側モータ制御
+        output = (bhv << 6); // (DB7,DB6)が右側モータ制御
         r_behavior = bhv;
     }
     ftdi->write(output);

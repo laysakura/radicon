@@ -1,5 +1,6 @@
 #include "Ftdi.h"
 #include "MortorCtl.h"
+#include "CarCtl.h"
 #include <iostream>
 
 int main()
@@ -10,12 +11,13 @@ int main()
         Ftdi ftdi;
 
         MortorCtl mctl(&ftdi);
-        mctl.command(MortorCtl::BROT, MortorCtl::R);
-        sleep(3);        
 
-        mctl.command(MortorCtl::BROT, MortorCtl::L);
-        mctl.command(MortorCtl::STOP, MortorCtl::R);
-        sleep(3);        
+        CarCtl cctl(&mctl);
+
+        cctl._run_mortor(10, 20);
+        sleep(5);
+        cctl._stop_mortor();
+
     }
     catch (FtdiException e) {
         std::cerr << e.what();
