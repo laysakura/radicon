@@ -1,0 +1,8 @@
+ラップされていない ftdi_*() 系の関数のドキュメントは，
+http://www.intra2net.com/en/developer/libftdi/documentation/group__libftdi.html
+によさげなのがあります．
+
+入力線をDB0-DB3，出力線をDB4-DB7として設計．
+
+(DB4,DB5) が左側モータ，
+(DB6,DB7) が右側モータへの命令．
