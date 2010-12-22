@@ -14,9 +14,18 @@ int main()
 
         CarCtl cctl(&mctl);
 
-        cctl._run_mortor(10, 20);
-        sleep(5);
-        cctl._stop_mortor();
+        cctl.run(50, 50);
+        sleep(1);
+        cctl.turnleft();
+        sleep(1);
+        cctl.turnleft();
+        sleep(1);
+        cctl.turnleft();
+        sleep(1);
+        cctl.turnleft();
+        sleep(1);
+        cctl.stop();
+        sleep(1);
 
     }
     catch (FtdiException e) {
