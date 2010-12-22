@@ -9,7 +9,7 @@
 
 namespace laysakura {
 
-typedef std::string command;
+typedef std::vector<std::string> command;
 
 typedef struct _thread_arg {
     int lspeed;
@@ -29,16 +29,17 @@ public:
 
     void perform_command(const command& cmd);
 
+    int left_speed();
+    int right_speed();
+    bool ishalt();
+
+private:
     void run(int lspeed_, int rspeed_);    // -100 <= speed <= 100
     void stop();
     void halt();
     void turnleft();
     void turnright();
     void neutral();
-
-    int left_speed();
-    int right_speed();
-    bool ishalt();
 
 private:
     pthread_t _tid;

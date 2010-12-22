@@ -1,6 +1,7 @@
 #include "Ftdi.h"
 #include "MortorCtl.h"
 #include "CarCtl.h"
+#include "Console.h"
 #include <iostream>
 
 int main()
@@ -9,24 +10,16 @@ int main()
 
     try {
         Ftdi ftdi;
-
         MortorCtl mctl(&ftdi);
-
         CarCtl cctl(&mctl);
 
-        cctl.run(50, 50);
-        sleep(1);
-        cctl.turnleft();
-        sleep(1);
-        cctl.turnleft();
-        sleep(1);
-        cctl.turnleft();
-        sleep(1);
-        cctl.turnleft();
-        sleep(1);
-        cctl.stop();
-        sleep(1);
+        Console con;
 
+        command cmd;
+        while (cmd.size() == 0 || (cmd[0] != "q" && cmd[0] != "quit")) {
+            cmd = con.input();
+            cctl.perform_command(cmd);
+        }
     }
     catch (FtdiException e) {
         std::cerr << e.what();

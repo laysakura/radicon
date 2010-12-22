@@ -10,10 +10,32 @@ CarCtl::CarCtl(MortorCtl* mctl)
       rspeed(0),
       _is_thread_running(false)
 {
+    stop();
 }
 
 void CarCtl::perform_command(const command& cmd)
 {
+    std::string op = cmd[0];
+
+    if (op == "s" || op == "stop") stop();
+    else if (op == "h" || op == "halt") halt();
+    else if (op == "l" || op == "left") turnleft();
+    else if (op == "r" || op == "right") turnright();
+    else if (op == "g" || op == "go") {
+        int lspeed_, rspeed_;
+        if (cmd.size() == 1) {
+            std::cerr << "Need 1 or 2 args" << std::endl;
+            return;
+        }
+        else if (cmd.size() == 2) {
+            lspeed_ = rspeed_ = atoi(cmd[1].c_str());
+        }
+        else {
+            lspeed_ = atoi(cmd[1].c_str());
+            rspeed_ = atoi(cmd[2].c_str());
+        }
+        run(lspeed_, rspeed_);
+    }
 }
 
 void CarCtl::run(int lspeed_, int rspeed_)

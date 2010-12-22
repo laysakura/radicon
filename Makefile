@@ -1,5 +1,5 @@
 CXX	= g++
-CXXFLAGS = -DDEBUG -Wall
+CXXFLAGS = -DDEBUG -g -Wall
 LDFLAGS	= 
 INCLUDES = 
 LIBS = -lftdi -lpthread
