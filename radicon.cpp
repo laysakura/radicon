@@ -17,6 +17,8 @@ int main()
 
         command cmd;
         while (cmd.size() == 0 || (cmd[0] != "q" && cmd[0] != "quit")) {
+            con.output_status(&cctl);
+            con.output_commands();
             cmd = con.input();
             cctl.perform_command(cmd);
         }
