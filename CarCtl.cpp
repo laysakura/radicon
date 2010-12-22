@@ -21,6 +21,7 @@ void CarCtl::perform_command(const command& cmd)
     else if (op == "h" || op == "halt") halt();
     else if (op == "l" || op == "left") turnleft();
     else if (op == "r" || op == "right") turnright();
+    else if (op == "n" || op == "neutral") neutral();
     else if (op == "g" || op == "go") {
         int lspeed_, rspeed_;
         if (cmd.size() == 1) {
