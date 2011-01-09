@@ -31,14 +31,13 @@ public:
     
 private:
     Ftdi* ftdi;
-    behavior l_behavior;
-    behavior r_behavior;
+    behavior bhv;
 
 public:
     MortorCtl(Ftdi* ftdi);
 
-    void command(behavior bhv, leftright lr);
-    behavior cur_behavior(leftright lr);
+    void command(behavior bhv_);
+    behavior cur_behavior();
 };
 
 }

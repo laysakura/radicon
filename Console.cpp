@@ -33,10 +33,10 @@ void Console::output_status(CarCtl* cctl)
 void Console::output_commands()
 {
     std::cout << "==Commands==" << std::endl;
-    std::cout << "(g)o SPEED\t(g)o LEFT-SPEED RIGHT-SPEED" << std::endl;
-    std::cout << "(l)eft\t(r)ight\t(n)eutoral" << std::endl;
+    std::cout << "(g)o\t(b)ack" << std::endl;
+    std::cout << "(l)eft\t(r)ight" << std::endl;
     std::cout << "(s)top" << std::endl;
-    std::cout << "(h)alt" << std::endl;
+    std::cout << "(q)uit" << std::endl;
 
     std::cout << std::endl;
 }

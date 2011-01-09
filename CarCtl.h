@@ -34,7 +34,8 @@ public:
     bool ishalt();
 
 private:
-    void run(int lspeed_, int rspeed_);    // -100 <= speed <= 100
+    void go();
+    void back();
     void stop();
     void halt();
     void turnleft();
