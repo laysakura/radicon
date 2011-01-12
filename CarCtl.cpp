@@ -36,7 +36,7 @@ void CarCtl::back()
 
 void CarCtl::stop()
 {
-    mctl->command(0x0);
+    mctl->command(0xf);
 }
 
 void CarCtl::halt()
